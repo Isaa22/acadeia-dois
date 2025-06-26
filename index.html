@@ -1,154 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIT Generator - Seu Personal Trainer Digital</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        html {
-            scroll-behavior: smooth; /* rolagem suave */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FIT Generator - Seu Personal Trainer Digital</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
-    <div class="blur-circle circle-1"></div>
-    <div class="blur-circle circle-2"></div>
-    <div class="blur-circle circle-3"></div>
-    
-    <header>
-        <div class="logo">
-            <span>FIT</span>Generator
+  <div class="blur-circle circle-1"></div>
+  <div class="blur-circle circle-2"></div>
+  <div class="blur-circle circle-3"></div>
+
+  <header>
+    <div class="logo">
+      <span>FIT</span>Generator
+    </div>
+    <nav>
+      <a href="#features">Benefícios</a>
+      <a href="#how-it-works">Como Funciona</a>
+      <a href="#testimonials">Depoimentos</a>
+    </nav>
+    <a href="#generator" class="cta-button">Começar Agora</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Seu <span>Personal Trainer</span> Digital</h1>
+        <p>Gere treinos personalizados em segundos, adaptados ao seu objetivo e nível de experiência.</p>
+        <div class="hero-buttons">
+          <a href="#generator" class="primary-button">Gerar Meu Treino</a>
+          <a href="#exemplo" class="secondary-button">Ver Exemplo <i class="fas fa-arrow-right"></i></a>
         </div>
-        <nav>
-            <a href="#features">Benefícios</a>
-            <a href="#how-it-works">Como Funciona</a>
-            <a href="#testimonials">Depoimentos</a>
-        </nav>
-        <!-- ALTERADO: botão virou link -->
-        <a href="#generator" class="cta-button">Começar Agora</a>
-    </header>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=880&q=80" alt="Homem se exercitando"/>
+      </div>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Seu <span>Personal Trainer</span> Digital</h1>
-                <p>Gere treinos personalizados em segundos, adaptados ao seu objetivo e nível de experiência.</p>
-                <div class="hero-buttons">
-                    <button class="primary-button" id="start-generator">Gerar Meu Treino</button>
-                    <button class="secondary-button">Ver Exemplo <i class="fas fa-arrow-right"></i></button>
-                </div>
+    <section class="generator-section" id="generator">
+      <div class="generator-container">
+        <h2>Personalize Seu Treino</h2>
+        <form id="form-treino">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome"><i class="fas fa-user"></i> Seu Nome</label>
+              <input type="text" id="nome" placeholder="Ex: João Silva" required/>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Homem se exercitando">
+            <div class="form-group">
+              <label for="idade"><i class="fas fa-calendar-alt"></i> Sua Idade</label>
+              <input type="number" id="idade" placeholder="Ex: 28" min="12" max="99" required/>
             </div>
-        </section>
+          </div>
 
-        <section class="generator-section" id="generator">
-            <div class="generator-container">
-                <h2>Personalize Seu Treino</h2>
-                <form id="form-treino">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nome"><i class="fas fa-user"></i> Seu Nome</label>
-                            <input type="text" id="nome" placeholder="Ex: João Silva" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="idade"><i class="fas fa-calendar-alt"></i> Sua Idade</label>
-                            <input type="number" id="idade" placeholder="Ex: 28" min="12" max="99" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="objetivo"><i class="fas fa-bullseye"></i> Objetivo</label>
-                            <select id="objetivo" required>
-                                <option value="">Selecione...</option>
-                                <option value="musculacao">Musculação</option>
-                                <option value="emagrecimento">Emagrecimento</option>
-                                <option value="ganho-massa">Ganho de Massa</option>
-                                <option value="condicionamento">Condicionamento</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="nivel"><i class="fas fa-signal"></i> Nível</label>
-                            <select id="nivel" required>
-                                <option value="">Selecione...</option>
-                                <option value="iniciante">Iniciante</option>
-                                <option value="intermediario">Intermediário</option>
-                                <option value="avancado">Avançado</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="generate-button">
-                        <i class="fas fa-dumbbell"></i> Gerar Treino Personalizado
-                    </button>
-                </form>
-                
-                <div id="resultado" class="treino-container hidden">
-                    <div class="result-header">
-                        <h3>Seu Plano de Treino</h3>
-                        <button class="print-button" onclick="window.print()">
-                            <i class="fas fa-print"></i> Imprimir
-                        </button>
-                    </div>
-                    <div id="saudacao" class="user-greeting"></div>
-                    <div id="dias-treino" class="workout-days"></div>
-                </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="objetivo"><i class="fas fa-bullseye"></i> Objetivo</label>
+              <select id="objetivo" required>
+                <option value="">Selecione...</option>
+                <option value="musculacao">Musculação</option>
+                <option value="emagrecimento">Emagrecimento</option>
+                <option value="ganho-massa">Ganho de Massa</option>
+                <option value="condicionamento">Condicionamento</option>
+              </select>
             </div>
-        </section>
+            <div class="form-group">
+              <label for="nivel"><i class="fas fa-signal"></i> Nível</label>
+              <select id="nivel" required>
+                <option value="">Selecione...</option>
+                <option value="iniciante">Iniciante</option>
+                <option value="intermediario">Intermediário</option>
+                <option value="avancado">Avançado</option>
+              </select>
+            </div>
+          </div>
 
-        <section class="features-section" id="features">
-            <h2>Por que escolher nosso gerador?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Rápido e Eficiente</h3>
-                    <p>Gere treinos completos em segundos, sem precisar de consultoria cara.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-cog"></i>
-                    </div>
-                    <h3>100% Personalizado</h3>
-                    <p>Treinos adaptados ao seu nível, objetivo e disponibilidade.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Base Científica</h3>
-                    <p>Exercícios selecionados com base em princípios de educação física.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+          <button type="submit" class="generate-button">
+            <i class="fas fa-dumbbell"></i> Gerar Treino Personalizado
+          </button>
+        </form>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span>FIT</span>Generator
-            </div>
-            <div class="footer-links">
-                <a href="#">Termos de Uso</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Contato</a>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-            </div>
+        <div id="resultado" class="treino-container hidden">
+          <div class="result-header">
+            <h3>Seu Plano de Treino</h3>
+            <button class="print-button" onclick="window.print()">
+              <i class="fas fa-print"></i> Imprimir
+            </button>
+          </div>
+          <div id="saudacao" class="user-greeting"></div>
+          <div id="dias-treino" class="workout-days"></div>
         </div>
-        <div class="copyright">
-            © 2025 FIT Generator. Todos os direitos reservados.
-        </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section class="features-section" id="features">
+      <h2>Por que escolher nosso gerador?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Rápido e Eficiente</h3>
+          <p>Gere treinos completos em segundos, sem precisar de consultoria cara.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-user-cog"></i>
+          </div>
+          <h3>100% Personalizado</h3>
+          <p>Treinos adaptados ao seu nível, objetivo e disponibilidade.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Base Científica</h3>
+          <p>Exercícios selecionados com base em princípios de educação física.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works-section" id="how-it-works">
+      <h2>Como Funciona</h2>
+      <ol class="how-it-works-steps">
+        <li>Preencha seu nome, idade, objetivo e nível.</li>
+        <li>Clique em "Gerar Treino Personalizado".</li>
+        <li>Receba seu plano completo direto na tela.</li>
+        <li>Imprima ou salve e comece hoje mesmo!</li>
+      </ol>
+    </section>
+
+    <section class="testimonials-section" id="testimonials">
+      <h2>O que dizem nossos usuários</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial">
+          <p>"Comecei a treinar com o FIT Generator e já vi resultados em 2 semanas!"</p>
+          <span>- Ana Luiza, 24 anos</span>
+        </div>
+        <div class="testimonial">
+          <p>"Economizei tempo e dinheiro com esse gerador. Super recomendo!"</p>
+          <span>- Marcos, 32 anos</span>
+        </div>
+        <div class="testimonial">
+          <p>"Fácil de usar e com treinos realistas. Amei!"</p>
+          <span>- Daniela, 28 anos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="example-section" id="exemplo">
+      <h2>Exemplo de Treino Gerado</h2>
+      <div class="example-box">
+        <h3>Plano: Emagrecimento - Intermediário</h3>
+        <ul>
+          <li>Segunda: HIIT + Abdômen</li>
+          <li>Quarta: Cardio + Funcional</li>
+          <li>Sexta: HIIT + Alongamento</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span>FIT</span>Generator
+      </div>
+      <div class="footer-links">
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Contato</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 FIT Generator. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
