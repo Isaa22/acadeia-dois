@@ -1,62 +1,63 @@
+/* === VARIÁVEIS GLOBAIS === */
 :root {
-    --primary: #6C5CE7;
-    --primary-dark: #5649C0;
-    --primary-light: #A29BFE;
-    --primary-transparent: rgba(108, 92, 231, 0.1);
-    
-    --secondary: #FD79A8;
-    --secondary-dark: #E84393;
-    --secondary-transparent: rgba(253, 121, 168, 0.1);
-    
-    --accent: #00CEc9;
-    --accent-dark: #00B5B2;
-    --accent-transparent: rgba(0, 206, 201, 0.1);
-    
-    --dark: #121212;
-    --darker: #0A0A0A;
-    --dark-gray: #1E1E1E;
-    --medium-gray: #2D2D2D;
-    --light-gray: #3D3D3D;
-    --lighter-gray: #DFE6E9;
-    --light: #F5F6FA;
-    
-    --success: #00B894;
-    --warning: #FDCB6E;
-    --error: #D63031;
-    
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.35);
-    --glow: 0 0 20px rgba(108, 92, 231, 0.6);
-    --glow-secondary: 0 0 20px rgba(253, 121, 168, 0.4);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --transition-slow: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --primary: #6C5CE7;
+  --primary-dark: #5649C0;
+  --primary-light: #A29BFE;
+  --primary-transparent: rgba(108, 92, 231, 0.1);
+
+  --secondary: #FD79A8;
+  --secondary-dark: #E84393;
+  --secondary-transparent: rgba(253, 121, 168, 0.1);
+
+  --accent: #00CEc9;
+  --accent-dark: #00B5B2;
+  --accent-transparent: rgba(0, 206, 201, 0.1);
+
+  --dark: #121212;
+  --darker: #0A0A0A;
+  --dark-gray: #1E1E1E;
+  --medium-gray: #2D2D2D;
+  --light-gray: #3D3D3D;
+  --lighter-gray: #DFE6E9;
+  --light: #F5F6FA;
+
+  --success: #00B894;
+  --warning: #FDCB6E;
+  --error: #D63031;
+
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.35);
+  --glow: 0 0 20px rgba(108, 92, 231, 0.6);
+  --glow-secondary: 0 0 20px rgba(253, 121, 168, 0.4);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* SEU CSS COMPLETO MANTIDO */
-
-/* ADIÇÃO: estilo para seção de planos pré-montados */
-.planos-prontos-section {
+/* === ESTILO DA NOVA SEÇÃO DE PLANOS PRONTOS === */
+.planos-section {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
   padding: 5rem 5%;
-  background: rgba(30, 30, 30, 0.7);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: 5rem;
+  max-width: 1400px;
+  margin: 5rem auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
   overflow: hidden;
 }
 
-.planos-prontos-section h2 {
+.planos-section h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--light);
-  font-weight: 700;
   position: relative;
+  font-weight: 700;
 }
 
-.planos-prontos-section h2::after {
+.planos-section h2::after {
   content: '';
   position: absolute;
   bottom: -15px;
@@ -73,46 +74,35 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.plano-box {
-  background: rgba(40, 40, 40, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.plano-card {
+  background: rgba(40, 40, 40, 0.8);
   border-radius: 15px;
   padding: 2rem;
   box-shadow: var(--shadow);
   transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(5px);
-  position: relative;
 }
 
-.plano-box:hover {
+.plano-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg), var(--glow-secondary);
-  border-color: rgba(108, 92, 231, 0.2);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(108, 92, 231, 0.3);
 }
 
-.plano-box h3 {
+.plano-card h3 {
+  color: var(--primary-light);
   font-size: 1.4rem;
   margin-bottom: 1rem;
-  color: var(--primary-light);
-  font-weight: 600;
 }
 
-.plano-box ul {
+.plano-card ul {
   list-style: none;
   padding-left: 0;
-  line-height: 1.8;
   color: var(--lighter-gray);
-  font-size: 0.95rem;
-}
-
-.plano-box ul li::before {
-  content: '\2022';
-  color: var(--accent);
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  line-height: 1.8;
+  font-size: 1rem;
+  opacity: 0.9;
 }
