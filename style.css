@@ -1,108 +1,201 @@
-/* === VARIÁVEIS GLOBAIS === */
-:root {
-  --primary: #6C5CE7;
-  --primary-dark: #5649C0;
-  --primary-light: #A29BFE;
-  --primary-transparent: rgba(108, 92, 231, 0.1);
-
-  --secondary: #FD79A8;
-  --secondary-dark: #E84393;
-  --secondary-transparent: rgba(253, 121, 168, 0.1);
-
-  --accent: #00CEc9;
-  --accent-dark: #00B5B2;
-  --accent-transparent: rgba(0, 206, 201, 0.1);
-
-  --dark: #121212;
-  --darker: #0A0A0A;
-  --dark-gray: #1E1E1E;
-  --medium-gray: #2D2D2D;
-  --light-gray: #3D3D3D;
-  --lighter-gray: #DFE6E9;
-  --light: #F5F6FA;
-
-  --success: #00B894;
-  --warning: #FDCB6E;
-  --error: #D63031;
-
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.35);
-  --glow: 0 0 20px rgba(108, 92, 231, 0.6);
-  --glow-secondary: 0 0 20px rgba(253, 121, 168, 0.4);
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  --transition-slow: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+/* Reset e Estilos Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* === ESTILO DA NOVA SEÇÃO DE PLANOS PRONTOS === */
-.planos-section {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(6px);
-  padding: 5rem 5%;
-  max-width: 1400px;
-  margin: 5rem auto;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
+body {
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
 }
 
-.planos-section h2 {
+/* Cabeçalho */
+header {
+  background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+  color: white;
+  padding: 2rem 0;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
   font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--light);
-  position: relative;
-  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.planos-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  border-radius: 2px;
-  box-shadow: 0 0 10px var(--primary);
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
-.planos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+/* Navegação */
+nav {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
   gap: 2rem;
 }
 
-.plano-card {
-  background: rgba(40, 40, 40, 0.8);
-  border-radius: 15px;
+nav a {
+  text-decoration: none;
+  color: #6e48aa;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #f0e6ff;
+  color: #4a2d7a;
+}
+
+/* Conteúdo Principal */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+  background-color: white;
+  border-radius: 8px;
   padding: 2rem;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
-.plano-card:hover {
+h2 {
+  color: #6e48aa;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0e6ff;
+}
+
+/* Cards de Conteúdo */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(108, 92, 231, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.plano-card h3 {
-  color: var(--primary-light);
-  font-size: 1.4rem;
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #4a2d7a;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Rodapé */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+footer p {
   margin-bottom: 1rem;
 }
 
-.plano-card ul {
-  list-style: none;
-  padding-left: 0;
-  color: var(--lighter-gray);
-  line-height: 1.8;
-  font-size: 1rem;
-  opacity: 0.9;
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #9d50bb;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Efeitos Especiais */
+.highlight {
+  background-color: #f0e6ff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(110, 72, 170, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(110, 72, 170, 0.4);
 }
